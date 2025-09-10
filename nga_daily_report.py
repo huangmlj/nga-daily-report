@@ -150,8 +150,8 @@ class NGADailyReporter:
             # 邮件配置
             smtp_server = os.getenv('SMTP_SERVER', 'smtp.qq.com')
             smtp_port = int(os.getenv('SMTP_PORT', '465'))
-            sender_email = os.getenv('SENDER_EMAIL', 'nga@802950.xyz')
-            sender_password = os.getenv('SENDER_PASSWORD', 'fxsvktgdeuqvbjba')
+            sender_email = os.getenv('SENDER_EMAIL', '360773337@qq.com')
+            sender_password = os.getenv('SENDER_PASSWORD')
             
             msg = MIMEMultipart('alternative')
             msg['Subject'] = f'NGA大时代板块日报 - {datetime.now().strftime("%Y-%m-%d")}'
@@ -190,8 +190,8 @@ def main():
         # 生成报告
         html_report = reporter.generate_html_report(daily_data)
         
-        # 发送邮件 - 需要替换为实际邮箱地址
-        recipient_email = os.getenv('RECIPIENT_EMAIL', 'user@example.com')
+        # 发送邮件 - 使用环境变量中的收件人邮箱
+        recipient_email = os.getenv('RECIPIENT_EMAIL', '360773337@qq.com')
         if reporter.send_email(html_report, recipient_email):
             logging.info("日报发送完成")
         else:
