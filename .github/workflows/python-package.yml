@@ -37,7 +37,6 @@ jobs:
     - name: Test script syntax
       run: |
         python -m py_compile nga_daily_report.py
-        python -m py_compile test_local.py
     
     - name: Run daily report
       env:
